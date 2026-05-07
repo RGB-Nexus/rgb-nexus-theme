@@ -1,0 +1,657 @@
+<?php
+/*
+Template Name: Service
+*/
+get_header();
+?>
+
+<main id="main" class="site-main">
+
+
+    <!-- =====================
+         1. Hero（下層共通）
+         ===================== -->
+    <section class="page-hero" aria-labelledby="page-hero-title">
+
+      <div class="rgb-blob-bg" aria-hidden="true">
+        <span class="rgb-blob-bg__blob rgb-blob-bg__blob--r"></span>
+        <span class="rgb-blob-bg__blob rgb-blob-bg__blob--b"></span>
+      </div>
+
+      <div class="l-container">
+        <div class="page-hero__inner">
+          <div class="page-hero__rgb-deco" aria-hidden="true">
+            <span class="page-hero__deco-line"></span>
+            <div class="rgb-dots">
+              <span class="rgb-dots__dot rgb-dots__dot--r"></span>
+              <span class="rgb-dots__dot rgb-dots__dot--g"></span>
+              <span class="rgb-dots__dot rgb-dots__dot--b"></span>
+            </div>
+            <span class="page-hero__deco-line"></span>
+          </div>
+          <span class="section-eyebrow section-eyebrow--light">SERVICE</span>
+          <h1 class="page-hero__title" id="page-hero-title">サービス内容</h1>
+          <p class="page-hero__lead">
+            企画・設計からデザイン・開発、公開後の運用まで。<br>
+            Webサイトに関わるすべてをワンストップで対応します。
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================
+         2. Problem（よくある課題）
+         ===================== -->
+    <section class="l-section l-section--gray" aria-labelledby="service-problem-title">
+      <div class="l-container">
+
+        <div class="section-heading section-heading--center">
+          <span class="section-eyebrow section-eyebrow--light">PROBLEM</span>
+          <h2 class="section-heading__title" id="service-problem-title">よくある課題</h2>
+          <p class="section-heading__lead">WEB制作でこんなお困りごとはありませんか？</p>
+        </div>
+
+        <ul class="problem-list l-grid-2" role="list">
+
+          <li class="problem-item problem-item--r">
+            <div class="problem-item__deco" aria-hidden="true"></div>
+            <div class="problem-item__inner">
+              <span class="problem-item__icon-wrap problem-item__icon-wrap--r" aria-hidden="true">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
+                </svg>
+              </span>
+              <p class="problem-item__text">制作会社ごとにやり取りが分かれていて、連携が大変...</p>
+            </div>
+          </li>
+
+          <li class="problem-item problem-item--g">
+            <div class="problem-item__deco" aria-hidden="true"></div>
+            <div class="problem-item__inner">
+              <span class="problem-item__icon-wrap problem-item__icon-wrap--g" aria-hidden="true">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </span>
+              <p class="problem-item__text">作った後の運用がわからず、サイトが放置されている...</p>
+            </div>
+          </li>
+
+          <li class="problem-item problem-item--b">
+            <div class="problem-item__deco" aria-hidden="true"></div>
+            <div class="problem-item__inner">
+              <span class="problem-item__icon-wrap problem-item__icon-wrap--b" aria-hidden="true">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </span>
+              <p class="problem-item__text">更新や改善の相談先が見つからない...</p>
+            </div>
+          </li>
+
+          <li class="problem-item problem-item--gray">
+            <div class="problem-item__deco" aria-hidden="true"></div>
+            <div class="problem-item__inner">
+              <span class="problem-item__icon-wrap problem-item__icon-wrap--gray" aria-hidden="true">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </span>
+              <p class="problem-item__text">別々の会社への依頼で、コストが膨らんでいる...</p>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- =====================
+         3. Main Service（メインサービス）
+         ===================== -->
+    <section class="l-section" aria-labelledby="service-main-title">
+      <div class="l-container">
+
+        <div class="section-heading section-heading--center">
+          <span class="section-eyebrow section-eyebrow--rgb">MAIN SERVICE</span>
+          <h2 class="section-heading__title" id="service-main-title">コーポレートサイト制作</h2>
+          <p class="section-heading__lead">企業の信頼性を高める、運用しやすいサイトづくり</p>
+        </div>
+
+        <!-- Main Hero Card: コーポレートサイト制作 -->
+        <div class="home-service__main-card service-main__hero-card">
+          <div class="home-service__main-inner">
+
+            <div class="home-service__main-logo" aria-hidden="true">
+              <span class="home-service__main-logo-bar home-service__main-logo-bar--r"></span>
+              <span class="home-service__main-logo-bar home-service__main-logo-bar--g"></span>
+              <span class="home-service__main-logo-bar home-service__main-logo-bar--b"></span>
+            </div>
+
+            <div class="home-service__main-body">
+
+              <div class="home-service__main-head">
+                <h3 class="home-service__main-title" id="sc-corporate">対応範囲</h3>
+                <span class="home-service__main-badge">MAIN SERVICE</span>
+              </div>
+
+              <p class="home-service__main-desc">
+                要件定義から設計・デザイン・開発・公開・運用まで、すべてのフェーズを一貫してサポートします。
+              </p>
+
+              <ul class="home-service__main-features" role="list">
+                <li class="home-service__main-feature">
+                  <svg class="home-service__main-feature-check home-service__main-feature-check--r" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <div>
+                    <p class="home-service__main-feature-title">ヒアリング・企画設計</p>
+                    <p class="home-service__main-feature-sub">要件定義から設計まで</p>
+                  </div>
+                </li>
+                <li class="home-service__main-feature">
+                  <svg class="home-service__main-feature-check home-service__main-feature-check--g" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <div>
+                    <p class="home-service__main-feature-title">デザイン・コーディング</p>
+                    <p class="home-service__main-feature-sub">UI/UX設計と実装</p>
+                  </div>
+                </li>
+                <li class="home-service__main-feature">
+                  <svg class="home-service__main-feature-check home-service__main-feature-check--b" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <div>
+                    <p class="home-service__main-feature-title">CMS構築・保守運用</p>
+                    <p class="home-service__main-feature-sub">更新しやすい仕組み</p>
+                  </div>
+                </li>
+              </ul>
+
+            </div>
+          </div>
+        </div><!-- /.home-service__main-card -->
+
+        <!-- 特徴 サブ見出し -->
+        <h3 class="service-main__feature-heading">特徴</h3>
+
+        <!-- 特徴 3カード -->
+        <div class="service-main__feature-cards l-grid-3">
+
+          <div class="home-strength__card-group">
+            <div class="home-strength__card-glow home-strength__card-glow--r" aria-hidden="true"></div>
+            <div class="home-strength__card home-strength__card--r">
+              <div class="home-strength__card-top">
+                <div class="home-strength__card-icon home-strength__card-icon--r" aria-hidden="true">
+                  <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                  </svg>
+                </div>
+                <div class="home-strength__card-num-row">
+                  <span class="home-strength__card-num-line home-strength__card-num-line--r"></span>
+                  <span class="home-strength__card-num home-strength__card-num--r">01</span>
+                </div>
+                <h3 class="home-strength__card-title">運用しやすさ</h3>
+              </div>
+              <p class="home-strength__card-desc">CMS導入で、専門知識がなくても簡単に更新できる仕組みを構築します。</p>
+            </div>
+          </div>
+
+          <div class="home-strength__card-group">
+            <div class="home-strength__card-glow home-strength__card-glow--g" aria-hidden="true"></div>
+            <div class="home-strength__card home-strength__card--g">
+              <div class="home-strength__card-top">
+                <div class="home-strength__card-icon home-strength__card-icon--g" aria-hidden="true">
+                  <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <div class="home-strength__card-num-row">
+                  <span class="home-strength__card-num-line home-strength__card-num-line--g"></span>
+                  <span class="home-strength__card-num home-strength__card-num--g">02</span>
+                </div>
+                <h3 class="home-strength__card-title">一貫対応</h3>
+              </div>
+              <p class="home-strength__card-desc">企画から運用まで、一つの窓口で完結。スムーズな進行をお約束します。</p>
+            </div>
+          </div>
+
+          <div class="home-strength__card-group">
+            <div class="home-strength__card-glow home-strength__card-glow--b" aria-hidden="true"></div>
+            <div class="home-strength__card home-strength__card--b">
+              <div class="home-strength__card-top">
+                <div class="home-strength__card-icon home-strength__card-icon--b" aria-hidden="true">
+                  <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+                  </svg>
+                </div>
+                <div class="home-strength__card-num-row">
+                  <span class="home-strength__card-num-line home-strength__card-num-line--b"></span>
+                  <span class="home-strength__card-num home-strength__card-num--b">03</span>
+                </div>
+                <h3 class="home-strength__card-title">継続サポート</h3>
+              </div>
+              <p class="home-strength__card-desc">公開後も改善提案や更新サポートを継続。サイトを成長させます。</p>
+            </div>
+          </div>
+
+        </div><!-- /.service-main__feature-cards -->
+
+        <!-- こんな方におすすめ -->
+        <div class="service-recommend">
+          <h3 class="service-recommend__title">こんな方におすすめ</h3>
+          <ul class="service-recommend__list service-recommend__list--grid" role="list">
+
+            <li class="service-recommend__card">
+              <div class="service-recommend__card-icon service-recommend__card-icon--r" aria-hidden="true">
+                <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                </svg>
+              </div>
+              <h4 class="service-recommend__card-title">初めてWEB制作する方</h4>
+              <p class="service-recommend__card-desc">専門用語や進め方がわからなくても、丁寧にサポートします</p>
+            </li>
+
+            <li class="service-recommend__card">
+              <div class="service-recommend__card-icon service-recommend__card-icon--g" aria-hidden="true">
+                <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                </svg>
+              </div>
+              <h4 class="service-recommend__card-title">運用に不安がある方</h4>
+              <p class="service-recommend__card-desc">公開後も継続サポートで、安心して運用できます</p>
+            </li>
+
+            <li class="service-recommend__card">
+              <div class="service-recommend__card-icon service-recommend__card-icon--b" aria-hidden="true">
+                <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <h4 class="service-recommend__card-title">一括で任せたい方</h4>
+              <p class="service-recommend__card-desc">複数の会社とやり取りする手間なく、すべてお任せください</p>
+            </li>
+
+          </ul>
+        </div><!-- /.service-recommend -->
+
+      </div>
+    </section>
+
+
+    <!-- =====================
+         4. Strength（強み）
+         ===================== -->
+    <section class="l-section l-section--gray home-strength" aria-labelledby="service-strength-title">
+      <div class="l-container">
+
+        <div class="section-heading section-heading--center">
+          <span class="section-eyebrow section-eyebrow--light">STRENGTH</span>
+          <h2 class="section-heading__title" id="service-strength-title">RGB Nexusが選ばれる理由</h2>
+          <p class="section-heading__lead">選ばれる3つの理由</p>
+        </div>
+
+        <ul class="home-strength__list l-grid-3" role="list">
+
+          <!-- Card 01: 一貫対応 (Red) -->
+          <li class="home-strength__card-group">
+            <div class="home-strength__card-glow home-strength__card-glow--r" aria-hidden="true"></div>
+            <div class="home-strength__card home-strength__card--r">
+
+              <div class="home-strength__card-top">
+                <div class="home-strength__card-icon home-strength__card-icon--r" aria-hidden="true">
+                  <svg width="36" height="36" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                  </svg>
+                </div>
+                <div class="home-strength__card-num-row">
+                  <span class="home-strength__card-num-line home-strength__card-num-line--r" aria-hidden="true"></span>
+                  <span class="home-strength__card-num home-strength__card-num--r">01</span>
+                </div>
+                <h3 class="home-strength__card-title">一貫対応</h3>
+              </div>
+
+              <p class="home-strength__card-desc">企画から運用まで、一つの窓口で対応。複数の会社とやりとりする手間がありません。</p>
+
+              <ul class="home-strength__card-bullets" role="list">
+                <li class="home-strength__card-bullet">
+                  <span class="home-strength__card-bullet-dot home-strength__card-bullet-dot--r" aria-hidden="true"></span>
+                  ワンストップサービス
+                </li>
+                <li class="home-strength__card-bullet">
+                  <span class="home-strength__card-bullet-dot home-strength__card-bullet-dot--r" aria-hidden="true"></span>
+                  スムーズな進行管理
+                </li>
+              </ul>
+
+            </div>
+          </li>
+
+          <!-- Card 02: 運用サポート (Green) -->
+          <li class="home-strength__card-group">
+            <div class="home-strength__card-glow home-strength__card-glow--g" aria-hidden="true"></div>
+            <div class="home-strength__card home-strength__card--g">
+
+              <div class="home-strength__card-top">
+                <div class="home-strength__card-icon home-strength__card-icon--g" aria-hidden="true">
+                  <svg width="36" height="36" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+                  </svg>
+                </div>
+                <div class="home-strength__card-num-row">
+                  <span class="home-strength__card-num-line home-strength__card-num-line--g" aria-hidden="true"></span>
+                  <span class="home-strength__card-num home-strength__card-num--g">02</span>
+                </div>
+                <h3 class="home-strength__card-title">運用サポート</h3>
+              </div>
+
+              <p class="home-strength__card-desc">公開後も更新・改善を継続サポート。サイトを育てていくパートナーとして伴走します。</p>
+
+              <ul class="home-strength__card-bullets" role="list">
+                <li class="home-strength__card-bullet">
+                  <span class="home-strength__card-bullet-dot home-strength__card-bullet-dot--g" aria-hidden="true"></span>
+                  継続的な改善提案
+                </li>
+                <li class="home-strength__card-bullet">
+                  <span class="home-strength__card-bullet-dot home-strength__card-bullet-dot--g" aria-hidden="true"></span>
+                  迅速なサポート体制
+                </li>
+              </ul>
+
+            </div>
+          </li>
+
+          <!-- Card 03: 明確なコスト設計 (Blue) -->
+          <li class="home-strength__card-group">
+            <div class="home-strength__card-glow home-strength__card-glow--b" aria-hidden="true"></div>
+            <div class="home-strength__card home-strength__card--b">
+
+              <div class="home-strength__card-top">
+                <div class="home-strength__card-icon home-strength__card-icon--b" aria-hidden="true">
+                  <svg width="36" height="36" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                  </svg>
+                </div>
+                <div class="home-strength__card-num-row">
+                  <span class="home-strength__card-num-line home-strength__card-num-line--b" aria-hidden="true"></span>
+                  <span class="home-strength__card-num home-strength__card-num--b">03</span>
+                </div>
+                <h3 class="home-strength__card-title">明確なコスト設計</h3>
+              </div>
+
+              <p class="home-strength__card-desc">予算に合わせた柔軟なプラン設計。必要な機能だけを提案し、無駄なコストを削減します。</p>
+
+              <ul class="home-strength__card-bullets" role="list">
+                <li class="home-strength__card-bullet">
+                  <span class="home-strength__card-bullet-dot home-strength__card-bullet-dot--b" aria-hidden="true"></span>
+                  透明性の高い見積もり
+                </li>
+                <li class="home-strength__card-bullet">
+                  <span class="home-strength__card-bullet-dot home-strength__card-bullet-dot--b" aria-hidden="true"></span>
+                  柔軟なプラン提案
+                </li>
+              </ul>
+
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- =====================
+         5. Other Service（関連サービス）
+         ===================== -->
+    <section class="l-section" aria-labelledby="service-other-title">
+      <div class="l-container">
+
+        <div class="section-heading section-heading--center">
+          <span class="section-eyebrow section-eyebrow--gray">OTHER SERVICE</span>
+          <h2 class="section-heading__title" id="service-other-title">関連サービス</h2>
+          <p class="section-heading__lead">コーポレートサイト制作とあわせてご依頼いただけるサービスです</p>
+        </div>
+
+        <div class="service-other__grid">
+
+          <!-- ランディングページ制作 (G) -->
+          <div class="home-service__sub-card home-service__sub-card--g">
+            <span class="home-service__sub-deco home-service__sub-deco--g" aria-hidden="true"></span>
+            <div class="home-service__sub-icon home-service__sub-icon--g" aria-hidden="true">
+              <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+            </div>
+            <h3 class="home-service__sub-title">ランディングページ制作</h3>
+            <p class="home-service__sub-desc">CV獲得に特化したLP制作。広告運用との連携もサポートします。</p>
+          </div>
+
+          <!-- バナー・画像制作 (B) -->
+          <div class="home-service__sub-card home-service__sub-card--b">
+            <span class="home-service__sub-deco home-service__sub-deco--b" aria-hidden="true"></span>
+            <div class="home-service__sub-icon home-service__sub-icon--b" aria-hidden="true">
+              <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <h3 class="home-service__sub-title">バナー・画像制作</h3>
+            <p class="home-service__sub-desc">広告バナーやSNS用画像など、各種ビジュアル制作に対応。</p>
+          </div>
+
+        </div><!-- /.service-other__grid -->
+      </div>
+    </section>
+
+
+    <!-- =====================
+         6. Flow（制作の流れ）
+         ===================== -->
+    <section class="l-section l-section--gray" aria-labelledby="service-flow-title">
+      <div class="l-container">
+
+        <div class="section-heading section-heading--center">
+          <span class="section-eyebrow section-eyebrow--light">FLOW</span>
+          <h2 class="section-heading__title" id="service-flow-title">制作の流れ</h2>
+          <p class="section-heading__lead">お問い合わせから公開まで、5つのステップで進めます</p>
+        </div>
+
+        <div class="service-flow">
+
+          <!-- Step 01: ご相談 (Red) -->
+          <div class="service-flow__step">
+            <div class="service-flow__step-body">
+              <div class="service-flow__step-glow service-flow__step-glow--r" aria-hidden="true"></div>
+              <div class="service-flow__step-box service-flow__step-box--r">
+                <span class="service-flow__step-num">STEP 1</span>
+                <svg class="service-flow__step-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="service-flow__step-text">
+              <div class="service-flow__step-label">ご相談</div>
+              <div class="service-flow__step-desc">お問い合わせ<br>ヒアリング</div>
+            </div>
+          </div>
+
+          <!-- Arrow 01→02 -->
+          <div class="service-flow__arrow" aria-hidden="true">
+            <span class="service-flow__arrow-line service-flow__arrow-line--ry"></span>
+            <svg class="service-flow__arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </div>
+
+          <!-- Step 02: 設計 (Yellow) -->
+          <div class="service-flow__step">
+            <div class="service-flow__step-body">
+              <div class="service-flow__step-glow service-flow__step-glow--y" aria-hidden="true"></div>
+              <div class="service-flow__step-box service-flow__step-box--y">
+                <span class="service-flow__step-num">STEP 2</span>
+                <svg class="service-flow__step-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                </svg>
+              </div>
+            </div>
+            <div class="service-flow__step-text">
+              <div class="service-flow__step-label">設計</div>
+              <div class="service-flow__step-desc">企画・提案<br>お見積り</div>
+            </div>
+          </div>
+
+          <!-- Arrow 02→03 -->
+          <div class="service-flow__arrow" aria-hidden="true">
+            <span class="service-flow__arrow-line service-flow__arrow-line--yg"></span>
+            <svg class="service-flow__arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </div>
+
+          <!-- Step 03: 制作 (Green) -->
+          <div class="service-flow__step">
+            <div class="service-flow__step-body">
+              <div class="service-flow__step-glow service-flow__step-glow--g" aria-hidden="true"></div>
+              <div class="service-flow__step-box service-flow__step-box--g">
+                <span class="service-flow__step-num">STEP 3</span>
+                <svg class="service-flow__step-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="service-flow__step-text">
+              <div class="service-flow__step-label">制作</div>
+              <div class="service-flow__step-desc">デザイン<br>コーディング</div>
+            </div>
+          </div>
+
+          <!-- Arrow 03→04 -->
+          <div class="service-flow__arrow" aria-hidden="true">
+            <span class="service-flow__arrow-line service-flow__arrow-line--gc"></span>
+            <svg class="service-flow__arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </div>
+
+          <!-- Step 04: 公開 (Cyan) -->
+          <div class="service-flow__step">
+            <div class="service-flow__step-body">
+              <div class="service-flow__step-glow service-flow__step-glow--c" aria-hidden="true"></div>
+              <div class="service-flow__step-box service-flow__step-box--c">
+                <span class="service-flow__step-num">STEP 4</span>
+                <svg class="service-flow__step-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="service-flow__step-text">
+              <div class="service-flow__step-label">公開</div>
+              <div class="service-flow__step-desc">テスト<br>リリース</div>
+            </div>
+          </div>
+
+          <!-- Arrow 04→05 -->
+          <div class="service-flow__arrow" aria-hidden="true">
+            <span class="service-flow__arrow-line service-flow__arrow-line--cb"></span>
+            <svg class="service-flow__arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </div>
+
+          <!-- Step 05: 運用 (Blue) -->
+          <div class="service-flow__step">
+            <div class="service-flow__step-body">
+              <div class="service-flow__step-glow service-flow__step-glow--b" aria-hidden="true"></div>
+              <div class="service-flow__step-box service-flow__step-box--b">
+                <span class="service-flow__step-num">STEP 5</span>
+                <svg class="service-flow__step-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                </svg>
+              </div>
+            </div>
+            <div class="service-flow__step-text">
+              <div class="service-flow__step-label">運用</div>
+              <div class="service-flow__step-desc">保守管理<br>継続サポート</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================
+         7. CTA（共通）
+         ===================== -->
+    <section class="cta-section cta-section--dark" aria-labelledby="service-cta-title">
+
+      <span class="cta-section__topline" aria-hidden="true"></span>
+
+      <div class="rgb-blob-bg" aria-hidden="true">
+        <span class="rgb-blob-bg__blob rgb-blob-bg__blob--r"></span>
+        <span class="rgb-blob-bg__blob rgb-blob-bg__blob--g"></span>
+        <span class="rgb-blob-bg__blob rgb-blob-bg__blob--b"></span>
+      </div>
+
+      <div class="l-container">
+        <div class="cta-section__inner">
+
+          <div class="cta-section__ornament" aria-hidden="true">
+            <span class="cta-section__ornament-line"></span>
+            <div class="cta-section__ornament-dots">
+              <span class="cta-section__ornament-dot cta-section__ornament-dot--r"></span>
+              <span class="cta-section__ornament-dot cta-section__ornament-dot--g"></span>
+              <span class="cta-section__ornament-dot cta-section__ornament-dot--b"></span>
+            </div>
+            <span class="cta-section__ornament-line"></span>
+          </div>
+
+          <h2 class="cta-section__title" id="service-cta-title">
+            まずはお気軽に<br>ご相談ください
+          </h2>
+
+          <p class="cta-section__lead">
+            どんな小さなことでも構いません。<br>
+            ご予算・スケジュールのご相談も、お気軽にどうぞ。<br>
+            <strong class="cta-section__lead-em">初回相談・お見積りは無料です。</strong>
+          </p>
+
+          <div class="cta-section__actions">
+            <a class="btn btn--white btn--md" href="<?php echo esc_url( home_url('/contact/') ); ?>">
+              <span class="btn__text">お問い合わせ</span>
+              <svg class="btn__icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+              </svg>
+            </a>
+          </div>
+
+          <ul class="cta-section__badges" aria-label="サービスの特徴">
+            <li class="cta-section__badge">
+              <svg class="cta-section__badge-icon" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              初回相談無料
+            </li>
+            <li class="cta-section__badge">
+              <svg class="cta-section__badge-icon" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              24時間受付
+            </li>
+            <li class="cta-section__badge">
+              <svg class="cta-section__badge-icon" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              即日返信
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </section>
+
+</main>
+
+<?php get_footer(); ?>
