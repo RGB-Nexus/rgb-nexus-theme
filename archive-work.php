@@ -46,11 +46,12 @@
           <ul class="l-grid-3 works-archive__grid" role="list">
 
             <?php
-            // オーバーレイカラーを R/G/B でローテーション
-            $overlay_colors = [ 'r', 'g', 'b' ];
+            $color_map = [ 'red' => 'r', 'green' => 'g', 'blue' => 'b' ];
 
             while ( have_posts() ) : the_post();
-              $color = $overlay_colors[ $wp_query->current_post % 3 ];
+              $work_color    = function_exists('get_field') ? get_field('work_color')    : '';
+              $work_category = function_exists('get_field') ? get_field('work_category') : '';
+              $color_key     = isset( $color_map[ $work_color ] ) ? $color_map[ $work_color ] : 'b';
             ?>
 
             <li class="works-archive__item">
@@ -64,14 +65,13 @@
                         'loading' => 'lazy',
                       ] ); ?>
                     <?php endif; ?>
-                    <div class="home-works__thumb-overlay home-works__thumb-overlay--<?php echo esc_attr( $color ); ?>" aria-hidden="true"></div>
+                    <div class="home-works__thumb-overlay home-works__thumb-overlay--<?php echo esc_attr( $color_key ); ?>" aria-hidden="true"></div>
                   </div>
 
                   <div class="home-works__body">
-                    <?php
-                    // TODO: タクソノミー work_category を登録後、get_the_terms() でバッジを動的出力
-                    // 現在はバッジ非表示。ACF または タクソノミー対応後に有効化すること。
-                    ?>
+                    <?php if ( $work_category ) : ?>
+                      <span class="home-works__badge home-works__badge--<?php echo esc_attr( $color_key ); ?>"><?php echo esc_html( $work_category ); ?></span>
+                    <?php endif; ?>
                     <h3 class="home-works__title"><?php the_title(); ?></h3>
                     <p class="home-works__desc"><?php the_excerpt(); ?></p>
                   </div>

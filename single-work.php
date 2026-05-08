@@ -1,6 +1,22 @@
 <?php get_header(); ?>
 
-<?php while ( have_posts() ) : the_post(); ?>
+<?php while ( have_posts() ) : the_post();
+
+  $work_color       = function_exists('get_field') ? get_field('work_color')       : '';
+  $work_category    = function_exists('get_field') ? get_field('work_category')    : '';
+  $work_meta        = function_exists('get_field') ? get_field('work_meta')        : '';
+  $project_url      = function_exists('get_field') ? get_field('project_url')      : '';
+  $project_scope    = function_exists('get_field') ? get_field('project_scope')    : [];
+  $project_problem  = function_exists('get_field') ? get_field('project_problem')  : '';
+  $project_solution = function_exists('get_field') ? get_field('project_solution') : '';
+  $project_points   = function_exists('get_field') ? get_field('project_points')   : '';
+  $project_result   = function_exists('get_field') ? get_field('project_result')   : '';
+  $client_name      = function_exists('get_field') ? get_field('client_name')      : '';
+
+  $color_map = [ 'red' => 'r', 'green' => 'g', 'blue' => 'b' ];
+  $color_key = isset( $color_map[ $work_color ] ) ? $color_map[ $work_color ] : 'b';
+
+?>
 
 <main id="main" class="site-main">
 
@@ -36,17 +52,8 @@
           </div>
           <span class="section-eyebrow section-eyebrow--light">WORKS</span>
           <h1 class="page-hero__title" id="work-detail-title"><?php the_title(); ?></h1>
-          <?php if ( has_excerpt() ) : ?>
-            <div class="page-hero__lead"><?php echo wp_kses_post( get_the_excerpt() ); ?></div>
-          <?php endif; ?>
-          <?php
-          $acf_industry = function_exists( 'get_field' ) ? get_field( 'industry' ) : '';
-          $acf_scope    = function_exists( 'get_field' ) ? get_field( 'scope' )    : '';
-          if ( $acf_industry || $acf_scope ) :
-          ?>
-            <div class="page-hero__lead">
-              <?php echo esc_html( $acf_industry ); ?>&nbsp;/&nbsp;<?php echo esc_html( $acf_scope ); ?>
-            </div>
+          <?php if ( $work_meta ) : ?>
+            <p class="page-hero__lead"><?php echo esc_html( $work_meta ); ?></p>
           <?php endif; ?>
         </div>
 
@@ -75,20 +82,16 @@
                 'height' => '600',
               ] ); ?>
             <?php else : ?>
-              <!-- サムネイル未設定時: ダミービジュアル -->
               <div class="home-works__thumb">
-                <div class="home-works__thumb-overlay home-works__thumb-overlay--r" aria-hidden="true"></div>
+                <div class="home-works__thumb-overlay home-works__thumb-overlay--<?php echo esc_attr( $color_key ); ?>" aria-hidden="true"></div>
               </div>
             <?php endif; ?>
           </div>
 
-          <?php
-          $acf_site_url = function_exists( 'get_field' ) ? get_field( 'site_url' ) : '';
-          if ( $acf_site_url ) :
-          ?>
+          <?php if ( $project_url ) : ?>
             <div class="work-detail__visual-footer">
               <a class="work-detail__site-link"
-                 href="<?php echo esc_url( $acf_site_url ); ?>"
+                 href="<?php echo esc_url( $project_url ); ?>"
                  target="_blank"
                  rel="noopener noreferrer">
                 <span>サイトを見る</span>
@@ -115,15 +118,128 @@
           </div>
         </div>
       </div>
-      <?php
-      // TODO: ACF フィールドを登録後、以下の構造化セクションを復元・有効化
-      // - work-detail__overview-card : 業種 (industry), 対応範囲 (scope repeater)
-      // - work-detail__block-card--r : 課題 (challenge)
-      // - work-detail__block-card--g : 対応内容 (solution)
-      // - work-detail__block-card--b : 工夫したポイント (point)
-      // - work-detail__block-card--rgb : 成果 (result)
-      ?>
 
+      <?php
+      $has_overview = $client_name || $work_category || ( is_array( $project_scope ) && ! empty( $project_scope ) );
+      if ( $has_overview ) : ?>
+      <section class="work-detail__section work-detail__section--gray">
+        <div class="l-container">
+          <div class="work-detail__inner">
+            <div class="work-detail__overview-card">
+              <h2 class="work-detail__overview-title">プロジェクト概要</h2>
+              <div class="work-detail__overview-list">
+
+                <?php if ( $client_name ) : ?>
+                <div class="work-detail__overview-row">
+                  <span class="work-detail__overview-label">クライアント</span>
+                  <span class="work-detail__overview-value"><?php echo esc_html( $client_name ); ?></span>
+                </div>
+                <?php endif; ?>
+
+                <?php if ( $work_category ) : ?>
+                <div class="work-detail__overview-row">
+                  <span class="work-detail__overview-label">業種</span>
+                  <span class="work-detail__overview-value"><?php echo esc_html( $work_category ); ?></span>
+                </div>
+                <?php endif; ?>
+
+                <?php if ( is_array( $project_scope ) && ! empty( $project_scope ) ) : ?>
+                <div class="work-detail__overview-row">
+                  <span class="work-detail__overview-label">対応範囲</span>
+                  <div class="work-detail__scope-tags">
+                    <?php foreach ( $project_scope as $scope_item ) : ?>
+                      <span class="work-detail__scope-tag"><?php echo esc_html( $scope_item ); ?></span>
+                    <?php endforeach; ?>
+                  </div>
+                </div>
+                <?php endif; ?>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <?php endif; ?>
+
+      <?php if ( $project_problem ) : ?>
+      <section class="work-detail__section">
+        <div class="l-container">
+          <div class="work-detail__inner">
+            <div class="work-detail__block-card work-detail__block-card--r">
+              <div class="work-detail__block-heading">
+                <div class="work-detail__block-icon work-detail__block-icon--r" aria-hidden="true">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                  </svg>
+                </div>
+                <h2 class="work-detail__block-title">課題</h2>
+              </div>
+              <p class="work-detail__block-body"><?php echo nl2br( esc_html( $project_problem ) ); ?></p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <?php endif; ?>
+
+      <?php if ( $project_solution ) : ?>
+      <section class="work-detail__section work-detail__section--gray">
+        <div class="l-container">
+          <div class="work-detail__inner">
+            <div class="work-detail__block-card work-detail__block-card--g">
+              <div class="work-detail__block-heading">
+                <div class="work-detail__block-icon work-detail__block-icon--g" aria-hidden="true">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <h2 class="work-detail__block-title">対応内容</h2>
+              </div>
+              <p class="work-detail__block-body"><?php echo nl2br( esc_html( $project_solution ) ); ?></p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <?php endif; ?>
+
+      <?php if ( $project_points ) : ?>
+      <section class="work-detail__section">
+        <div class="l-container">
+          <div class="work-detail__inner">
+            <div class="work-detail__block-card work-detail__block-card--b">
+              <div class="work-detail__block-heading">
+                <div class="work-detail__block-icon work-detail__block-icon--b" aria-hidden="true">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                  </svg>
+                </div>
+                <h2 class="work-detail__block-title">工夫したポイント</h2>
+              </div>
+              <p class="work-detail__block-body"><?php echo nl2br( esc_html( $project_points ) ); ?></p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <?php endif; ?>
+
+      <?php if ( $project_result ) : ?>
+      <section class="work-detail__section work-detail__section--gray">
+        <div class="l-container">
+          <div class="work-detail__inner">
+            <div class="work-detail__block-card work-detail__block-card--rgb">
+              <div class="work-detail__block-heading">
+                <div class="work-detail__block-icon work-detail__block-icon--rgb" aria-hidden="true">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                  </svg>
+                </div>
+                <h2 class="work-detail__block-title">成果</h2>
+              </div>
+              <p class="work-detail__block-body"><?php echo nl2br( esc_html( $project_result ) ); ?></p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <?php endif; ?>
 
     </article>
     <!-- /work-detail -->

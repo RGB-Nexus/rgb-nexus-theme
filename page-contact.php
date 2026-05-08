@@ -74,66 +74,7 @@ get_header();
     <section class="contact-form-section l-section" aria-label="お問い合わせフォーム">
       <div class="l-container">
         <div class="contact-form-section__card">
-          <form class="contact-form" id="contact-form" action="#" method="post" novalidate>
-
-            <div class="form-field">
-              <label class="form-field__label" for="name">
-                お名前<span class="form-field__required" aria-label="必須">*</span>
-              </label>
-              <input class="form-field__input" type="text" id="name" name="name"
-                     placeholder="山田 太郎" required autocomplete="name">
-            </div>
-
-            <div class="form-field">
-              <label class="form-field__label" for="email">
-                メールアドレス<span class="form-field__required" aria-label="必須">*</span>
-              </label>
-              <input class="form-field__input" type="email" id="email" name="email"
-                     placeholder="example@example.com" required autocomplete="email">
-            </div>
-
-            <div class="form-field">
-              <label class="form-field__label" for="company">
-                会社名<span class="form-field__optional">任意</span>
-              </label>
-              <input class="form-field__input" type="text" id="company" name="company"
-                     placeholder="株式会社サンプル" autocomplete="organization">
-            </div>
-
-            <div class="form-field">
-              <label class="form-field__label" for="category">
-                相談内容<span class="form-field__optional">任意</span>
-              </label>
-              <div class="form-field__select-wrap">
-                <select class="form-field__select" id="category" name="category">
-                  <option value="">選択してください</option>
-                  <option value="corporate">コーポレートサイト制作</option>
-                  <option value="landing">ランディングページ制作</option>
-                  <option value="banner">バナー・画像制作</option>
-                  <option value="maintenance">保守・運用</option>
-                  <option value="other">その他</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-field">
-              <label class="form-field__label" for="message">
-                お問い合わせ内容<span class="form-field__required" aria-label="必須">*</span>
-              </label>
-              <textarea class="form-field__textarea" id="message" name="message"
-                        rows="6" placeholder="お問い合わせ内容をご記入ください" required></textarea>
-            </div>
-
-            <div class="contact-form__submit">
-              <button class="btn btn--primary btn--full btn--lg" type="submit">
-                <span class="btn__text">無料相談を送信する</span>
-                <svg class="btn__icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                </svg>
-              </button>
-            </div>
-
-          </form>
+          <?php echo do_shortcode('[contact-form-7 id="dd0c95c" title="問い合わせフォーム"]'); ?>
         </div>
       </div>
     </section>

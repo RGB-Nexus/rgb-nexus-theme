@@ -2899,6 +2899,234 @@ p {
 @media (min-width: 768px) { .contact-notes__item { font-size: 1rem; } }
 
 
+/* ---------------------------------------------------------------------------
+   7.4 Contact Form 7
+   --------------------------------------------------------------------------- */
+
+/* Outer wrapper reset */
+.contact-form-section .wpcf7 { margin: 0; }
+
+/* Form: flex column layout (= .contact-form) */
+.contact-form-section .wpcf7-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (min-width: 768px) { .contact-form-section .wpcf7-form { gap: 28px; } }
+
+/* <p> field row reset */
+.contact-form-section .wpcf7-form > p { margin: 0; }
+
+/* Label (= .form-field__label) */
+.contact-form-section .wpcf7-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-main);
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) { .contact-form-section .wpcf7-form label { font-size: 1rem; margin-bottom: 12px; } }
+
+/* 「必須」バッジ (= .form-field__required) */
+.contact-form-section .form-required {
+  font-size: 1em;
+  font-weight: 500;
+  color: #dc2626;
+  margin-left: 3px;
+}
+
+/* Hide <br> CF7 inserts inside labels */
+.contact-form-section .wpcf7-form label br { display: none; }
+
+/* control-wrap: block display */
+.contact-form-section .wpcf7-form-control-wrap { display: block; }
+
+/* Input / Textarea / Select 共通 (= .form-field__input) */
+.contact-form-section .wpcf7-text,
+.contact-form-section .wpcf7-email,
+.contact-form-section .wpcf7-tel,
+.contact-form-section .wpcf7-textarea,
+.contact-form-section .wpcf7-select {
+  width: 100%;
+  padding: 14px 16px;
+  background-color: var(--color-bg-input);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 0.875rem;
+  color: var(--color-text-main);
+  min-height: 48px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color var(--transition-base);
+}
+
+@media (min-width: 768px) {
+  .contact-form-section .wpcf7-text,
+  .contact-form-section .wpcf7-email,
+  .contact-form-section .wpcf7-tel,
+  .contact-form-section .wpcf7-textarea,
+  .contact-form-section .wpcf7-select {
+    padding: 12px 16px;
+    font-size: 1rem;
+  }
+}
+
+/* Focus */
+.contact-form-section .wpcf7-text:focus,
+.contact-form-section .wpcf7-email:focus,
+.contact-form-section .wpcf7-tel:focus,
+.contact-form-section .wpcf7-textarea:focus,
+.contact-form-section .wpcf7-select:focus { border-color: var(--color-primary); }
+
+/* Textarea */
+.contact-form-section .wpcf7-textarea {
+  resize: none;
+  line-height: 1.7;
+  min-height: 160px;
+}
+
+/* Select: ネイティブ矢印を非表示にしてSVG矢印を表示 */
+.contact-form-section .wpcf7-select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236B7280' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 10px 6px;
+  padding-right: 40px;
+}
+
+/* Submit wrapper: gap で上余白を管理するため margin-top 不要 */
+.contact-form-section .form-submit { padding-top: 0; }
+
+/* Submit button (= .btn--primary.btn--full.btn--lg) */
+.contact-form-section .wpcf7-submit {
+  display: block;
+  width: 100%;
+  padding: 16px 32px;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  min-height: 56px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  transition:
+    background-color var(--transition-base),
+    box-shadow       var(--transition-base),
+    transform        var(--transition-base);
+}
+
+@media (min-width: 768px) {
+  .contact-form-section .wpcf7-submit {
+    padding: 20px 32px;
+    font-size: 1.125rem;
+    border-radius: var(--radius-lg);
+    min-height: 64px;
+  }
+}
+
+.contact-form-section .wpcf7-submit:hover {
+  background-color: #1f2937;
+  transform: translateY(-4px) scale(1.02);
+  box-shadow:
+    0 20px 48px rgba(0, 0, 0, 0.22),
+    0 0 32px rgba(239, 68, 68, 0.09),
+    0 0 32px rgba(59, 130, 246, 0.09);
+}
+
+.contact-form-section .wpcf7-form.submitting .wpcf7-submit {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Checkbox (privacy / acceptance) */
+.contact-form-section .form-privacy {
+  display: flex;
+  align-items: center;
+}
+
+.contact-form-section .wpcf7-acceptance {
+  display: block;
+}
+
+.contact-form-section .wpcf7-list-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+
+.contact-form-section .wpcf7-list-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  flex-shrink: 0;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+  margin: 0;
+}
+
+.contact-form-section .wpcf7-list-item-label {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--color-text-sub);
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+/* Validation error tip */
+.contact-form-section .wpcf7-not-valid-tip {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: #dc2626;
+  line-height: 1.5;
+}
+
+/* Invalid field border */
+.contact-form-section .wpcf7-text.wpcf7-not-valid,
+.contact-form-section .wpcf7-email.wpcf7-not-valid,
+.contact-form-section .wpcf7-tel.wpcf7-not-valid,
+.contact-form-section .wpcf7-textarea.wpcf7-not-valid,
+.contact-form-section .wpcf7-select.wpcf7-not-valid { border-color: #dc2626; }
+
+/* Response output (送信完了 / 送信失敗) */
+.contact-form-section .wpcf7-response-output {
+  margin-top: 16px;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  border: 2px solid var(--color-border);
+  color: var(--color-text-main);
+}
+
+.contact-form-section .wpcf7-form.sent .wpcf7-response-output {
+  background-color: rgba(34, 197, 94, 0.06);
+  border-color: rgba(34, 197, 94, 0.4);
+  color: #15803d;
+}
+
+.contact-form-section .wpcf7-form.invalid .wpcf7-response-output,
+.contact-form-section .wpcf7-form.unaccepted .wpcf7-response-output,
+.contact-form-section .wpcf7-form.failed .wpcf7-response-output {
+  background-color: rgba(239, 68, 68, 0.06);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #dc2626;
+}
+
+@media (min-width: 768px) { .contact-form-section .wpcf7-response-output { font-size: 1rem; } }
+
+
 /* =============================================================================
    8. PAGE: SERVICE
    ============================================================================= */

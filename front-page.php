@@ -573,20 +573,23 @@
         </div>
 
         <?php
-        $works_query = new WP_Query( [
+        $works_query    = new WP_Query( [
           'post_type'      => 'work',
           'posts_per_page' => 3,
           'no_found_rows'  => true,
         ] );
-        $overlay_colors = [ 'r', 'g', 'b' ];
+        $work_color_map = [ 'red' => 'r', 'green' => 'g', 'blue' => 'b' ];
         ?>
 
         <ul class="home-works__list l-grid-3" role="list">
 
           <?php if ( $works_query->have_posts() ) : ?>
 
-            <?php while ( $works_query->have_posts() ) : $works_query->the_post(); ?>
-            <?php $color = $overlay_colors[ $works_query->current_post % 3 ]; ?>
+            <?php while ( $works_query->have_posts() ) : $works_query->the_post();
+              $work_color    = function_exists('get_field') ? get_field('work_color')    : '';
+              $work_category = function_exists('get_field') ? get_field('work_category') : '';
+              $color_key     = isset( $work_color_map[ $work_color ] ) ? $work_color_map[ $work_color ] : 'b';
+            ?>
 
             <li>
               <a class="home-works__card" href="<?php the_permalink(); ?>">
@@ -597,10 +600,12 @@
                       'loading' => 'lazy',
                     ] ); ?>
                   <?php endif; ?>
-                  <span class="home-works__thumb-overlay home-works__thumb-overlay--<?php echo esc_attr( $color ); ?>"></span>
+                  <span class="home-works__thumb-overlay home-works__thumb-overlay--<?php echo esc_attr( $color_key ); ?>"></span>
                 </div>
                 <div class="home-works__body">
-                  <?php // TODO: work_category タクソノミー登録後、バッジを動的出力 ?>
+                  <?php if ( $work_category ) : ?>
+                    <span class="home-works__badge home-works__badge--<?php echo esc_attr( $color_key ); ?>"><?php echo esc_html( $work_category ); ?></span>
+                  <?php endif; ?>
                   <h3 class="home-works__title"><?php the_title(); ?></h3>
                   <p class="home-works__desc"><?php
                     if ( has_excerpt() ) {
