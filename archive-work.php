@@ -96,7 +96,7 @@
           if ( $pagination ) : ?>
           <nav class="works-archive__pager" aria-label="ページ送り">
             <?php foreach ( $pagination as $page ) : ?>
-              <?php echo $page; ?>
+              <?php echo wp_kses_post( $page ); ?>
             <?php endforeach; ?>
           </nav>
           <?php endif; ?>

@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RGB Nexus | Webサイト制作・デザイン</title>
   <meta name="description" content="RGB NexusはWebサイト制作・デザインを手がけるクリエイティブスタジオです。コーポレートサイト・LP・バナー制作など、小規模案件から幅広く対応します。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
