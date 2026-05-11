@@ -24,11 +24,12 @@
             </div>
             <span class="page-hero__deco-line"></span>
           </div>
-          <span class="section-eyebrow section-eyebrow--light">WORKS</span>
-          <h1 class="page-hero__title" id="page-hero-title">制作実績</h1>
+          <span class="section-eyebrow section-eyebrow--light">CASE STUDIES</span>
+          <h1 class="page-hero__title" id="page-hero-title">支援実績</h1>
           <p class="page-hero__lead">
-            これまでに手がけた様々な業種のWEB制作実績をご紹介します。<br>
-            お客様の課題に寄り添い、最適なソリューションを提供してきました。
+            WEB制作・運用改善・レッスン・継続支援など、<br>
+            これまでに携わった様々な支援事例をご紹介します。<br>
+            課題や目的に合わせて、設計・制作・改善まで柔軟に対応しています。
           </p>
         </div>
       </div>
@@ -38,7 +39,7 @@
     <!-- =====================
          2. Works Archive（実績一覧）
          ===================== -->
-    <section class="l-section l-section--gray works-archive" aria-label="制作実績一覧">
+    <section class="l-section l-section--gray works-archive" aria-label="支援実績一覧">
       <div class="l-container">
 
         <?php if ( have_posts() ) : ?>
@@ -103,7 +104,7 @@
 
         <?php else : ?>
 
-          <p class="works-archive__empty">実績はまだ登録されていません。</p>
+          <p class="works-archive__empty">支援実績はまだ登録されていません。</p>
 
         <?php endif; ?>
 

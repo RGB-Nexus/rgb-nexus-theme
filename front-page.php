@@ -567,9 +567,9 @@
       <div class="l-container">
 
         <div class="section-heading section-heading--center">
-          <span class="section-eyebrow section-eyebrow--light">WORKS</span>
-          <h2 class="section-heading__title" id="works-title">制作実績</h2>
-          <p class="section-heading__lead">これまでに手がけた制作事例の一部をご紹介します</p>
+          <span class="section-eyebrow section-eyebrow--light">CASE STUDIES</span>
+          <h2 class="section-heading__title" id="works-title">支援実績</h2>
+          <p class="section-heading__lead">これまでに携わった支援事例の一部をご紹介します</p>
         </div>
 
         <?php
@@ -627,7 +627,7 @@
 
             <!-- 投稿なし: 静的ダミーカード3件 -->
             <li>
-              <a class="home-works__card" href="<?php echo esc_url( home_url('/works/') ); ?>">
+              <a class="home-works__card" href="<?php echo esc_url( home_url('/cases/') ); ?>">
                 <div class="home-works__thumb" aria-hidden="true">
                   <span class="home-works__thumb-overlay home-works__thumb-overlay--r"></span>
                 </div>
@@ -640,7 +640,7 @@
             </li>
 
             <li>
-              <a class="home-works__card" href="<?php echo esc_url( home_url('/works/') ); ?>">
+              <a class="home-works__card" href="<?php echo esc_url( home_url('/cases/') ); ?>">
                 <div class="home-works__thumb" aria-hidden="true">
                   <span class="home-works__thumb-overlay home-works__thumb-overlay--g"></span>
                 </div>
@@ -653,7 +653,7 @@
             </li>
 
             <li>
-              <a class="home-works__card" href="<?php echo esc_url( home_url('/works/') ); ?>">
+              <a class="home-works__card" href="<?php echo esc_url( home_url('/cases/') ); ?>">
                 <div class="home-works__thumb" aria-hidden="true">
                   <span class="home-works__thumb-overlay home-works__thumb-overlay--b"></span>
                 </div>
@@ -670,8 +670,8 @@
         </ul>
 
         <div class="home-works__cta">
-          <a class="btn btn--primary btn--md" href="<?php echo esc_url( home_url('/works/') ); ?>">
-            <span class="btn__text">制作実績を見る</span>
+          <a class="btn btn--primary btn--md" href="<?php echo esc_url( home_url('/cases/') ); ?>">
+            <span class="btn__text">支援実績を見る</span>
             <svg class="btn__icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
             </svg>

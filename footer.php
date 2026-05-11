@@ -16,7 +16,7 @@
         <nav class="site-footer__nav" aria-label="フッターナビゲーション">
           <ul class="site-footer__nav-list">
             <li><a class="site-footer__nav-link" href="<?php echo esc_url( home_url('/service/') ); ?>">サービス</a></li>
-            <li><a class="site-footer__nav-link" href="<?php echo esc_url( home_url('/works/') ); ?>">実績</a></li>
+            <li><a class="site-footer__nav-link" href="<?php echo esc_url( home_url('/cases/') ); ?>">支援実績</a></li>
             <li><a class="site-footer__nav-link" href="<?php echo esc_url( home_url('/pricing/') ); ?>">料金</a></li>
             <li><a class="site-footer__nav-link" href="<?php echo esc_url( home_url('/company/') ); ?>">会社概要</a></li>
             <li><a class="site-footer__nav-link" href="<?php echo esc_url( home_url('/contact/') ); ?>">お問い合わせ</a></li>

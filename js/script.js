@@ -147,10 +147,37 @@
   }
 
   /* ================================================================
+     3. ACCEPTANCE — CF7 同意チェックボックスで送信ボタンをトグル
+     未チェック時: disabled 属性を付与して視覚的・機能的に無効化
+     チェック後  : disabled を解除して通常ボタンに戻す
+     ================================================================ */
+  function initAcceptanceToggle() {
+    var container = document.querySelector('.contact-form-section .wpcf7');
+    if (!container) return;
+
+    var checkbox = container.querySelector('.wpcf7-acceptance input[type="checkbox"]');
+    var submit   = container.querySelector('.wpcf7-submit');
+    if (!checkbox || !submit) return;
+
+    function syncState() {
+      submit.disabled = !checkbox.checked;
+    }
+
+    // 初期状態を反映
+    syncState();
+    checkbox.addEventListener('change', syncState);
+
+    // CF7 送信完了後のフォームリセット時も再同期
+    container.addEventListener('wpcf7reset', syncState);
+    container.addEventListener('wpcf7mailsent', syncState);
+  }
+
+  /* ================================================================
      INIT — 各モジュールを起動
      要素が存在しないページでは各 init 関数が早期 return するため安全
      ================================================================ */
   initNav();
   initAccordion();
+  initAcceptanceToggle();
 
 }());

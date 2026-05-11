@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="RGB NexusはWebサイト制作・デザインを手がけるクリエイティブスタジオです。コーポレートサイト・LP・バナー制作など、小規模案件から幅広く対応します。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
@@ -35,7 +34,7 @@
             <a class="site-nav__link" href="<?php echo esc_url( home_url('/service/') ); ?>">サービス</a>
           </li>
           <li class="site-nav__item">
-            <a class="site-nav__link" href="<?php echo esc_url( home_url('/works/') ); ?>">実績</a>
+            <a class="site-nav__link" href="<?php echo esc_url( home_url('/cases/') ); ?>">支援実績</a>
           </li>
           <li class="site-nav__item">
             <a class="site-nav__link" href="<?php echo esc_url( home_url('/pricing/') ); ?>">料金</a>

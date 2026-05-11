@@ -33,11 +33,11 @@
 
       <div class="l-container">
 
-        <a class="page-hero__back" href="<?php echo esc_url( home_url('/works/') ); ?>">
+        <a class="page-hero__back" href="<?php echo esc_url( home_url('/cases/') ); ?>">
           <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
           </svg>
-          制作実績一覧に戻る
+          支援実績一覧に戻る
         </a>
 
         <div class="page-hero__inner">
@@ -50,7 +50,7 @@
             </div>
             <span class="page-hero__deco-line"></span>
           </div>
-          <span class="section-eyebrow section-eyebrow--light">WORKS</span>
+          <span class="section-eyebrow section-eyebrow--light">CASE STUDIES</span>
           <h1 class="page-hero__title" id="work-detail-title"><?php the_title(); ?></h1>
           <?php if ( $work_meta ) : ?>
             <p class="page-hero__lead"><?php echo esc_html( $work_meta ); ?></p>

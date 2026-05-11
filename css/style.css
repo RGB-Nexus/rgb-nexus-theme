@@ -2906,29 +2906,39 @@ p {
 /* Outer wrapper reset */
 .contact-form-section .wpcf7 { margin: 0; }
 
-/* Form: flex column layout (= .contact-form) */
+/* Form: outer flex reset — gap は .contact-form 側で管理 */
 .contact-form-section .wpcf7-form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
 }
 
-@media (min-width: 768px) { .contact-form-section .wpcf7-form { gap: 28px; } }
+/* Field group spacing (scoped: グローバル .contact-form gap を上書き) */
+.contact-form-section .contact-form {
+  gap: 32px;
+}
 
-/* <p> field row reset */
+@media (min-width: 768px) {
+  .contact-form-section .contact-form {
+    gap: 40px;
+  }
+}
+
+/* CF7 自動生成要素リセット */
 .contact-form-section .wpcf7-form > p { margin: 0; }
+.contact-form-section .wpcf7 p     { margin: 0; }
+.contact-form-section .contact-form br { display: none; }
 
 /* Label (= .form-field__label) */
 .contact-form-section .wpcf7-form label {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-main);
   line-height: 1.5;
 }
 
-@media (min-width: 768px) { .contact-form-section .wpcf7-form label { font-size: 1rem; margin-bottom: 12px; } }
+@media (min-width: 768px) { .contact-form-section .wpcf7-form label { font-size: 1rem; margin-bottom: 16px; } }
 
 /* 「必須」バッジ (= .form-field__required) */
 .contact-form-section .form-required {
@@ -3048,10 +3058,29 @@ p {
   transform: none;
 }
 
+/* Submit button: acceptance 未チェック時の無効ビジュアル */
+.contact-form-section .wpcf7-submit:disabled,
+.contact-form-section .wpcf7-submit[disabled] {
+  background-color: #d1d5db;
+  color: #ffffff;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
 /* Checkbox (privacy / acceptance) */
 .contact-form-section .form-privacy {
   display: flex;
   align-items: center;
+}
+
+/* CF7 acceptance 内部の label を flex 化して checkbox とテキストを中央揃え */
+.contact-form-section .form-privacy .wpcf7-list-item label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0;
+  cursor: pointer;
 }
 
 .contact-form-section .wpcf7-acceptance {
@@ -3083,10 +3112,22 @@ p {
   cursor: pointer;
 }
 
+/* Privacy link inside acceptance label */
+.contact-form-section .wpcf7-list-item-label a {
+  color: var(--color-text-main);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-base);
+}
+
+.contact-form-section .wpcf7-list-item-label a:hover {
+  color: #111827;
+}
+
 /* Validation error tip */
 .contact-form-section .wpcf7-not-valid-tip {
   display: block;
-  margin-top: 6px;
+  margin-top: 4px;
   font-size: 0.75rem;
   color: #dc2626;
   line-height: 1.5;
@@ -5316,6 +5357,111 @@ p {
   font-size: 0.875rem;
   color: var(--color-text-sub);
   line-height: 1.85;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Privacy Policy
+   ========================================================================== */
+
+.privacy-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.privacy-content__sections {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.privacy-item {
+  border-bottom: 1px solid var(--color-border);
+  padding: 32px 0;
+}
+
+.privacy-item:first-child {
+  padding-top: 0;
+}
+
+.privacy-item__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.privacy-item__num {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  letter-spacing: 0.08em;
+  font-feature-settings: "tnum";
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.privacy-item__title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-main);
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .privacy-item__title {
+    font-size: 1.0625rem;
+  }
+}
+
+.privacy-item__body p {
+  font-size: 0.9375rem;
+  color: var(--color-text-sub);
+  line-height: 1.85;
+  margin: 0 0 12px;
+}
+
+.privacy-item__body p:last-child {
+  margin-bottom: 0;
+}
+
+.privacy-item__list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.privacy-item__list li {
+  font-size: 0.9375rem;
+  color: var(--color-text-sub);
+  line-height: 1.7;
+  padding-left: 1.25em;
+  position: relative;
+}
+
+.privacy-item__list li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+}
+
+.privacy-contact__btn {
+  margin-top: 20px;
+}
+
+.privacy-operator {
+  padding-top: 32px;
+  text-align: right;
+}
+
+.privacy-operator p {
+  font-size: 0.875rem;
+  color: var(--color-text-sub);
   margin: 0;
 }
 
