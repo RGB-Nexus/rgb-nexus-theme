@@ -74,6 +74,7 @@ get_header();
     <section class="contact-form-section l-section" aria-label="お問い合わせフォーム">
       <div class="l-container">
         <div class="contact-form-section__card">
+          <?php // 本番移行後、Contact Form 7 のフォームIDが一致しているか確認すること。 ?>
           <?php echo do_shortcode('[contact-form-7 id="dd0c95c" title="問い合わせフォーム"]'); ?>
         </div>
       </div>

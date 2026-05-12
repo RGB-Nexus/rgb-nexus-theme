@@ -32,6 +32,7 @@ function rgb_nexus_scripts() {
 add_action('wp_enqueue_scripts', 'rgb_nexus_scripts');
 
 
+// 長期運用でテーマ変更の可能性がある場合は、CPT登録の専用プラグイン化を検討する。
 function rgb_nexus_register_post_types() {
 
   register_post_type( 'work', [

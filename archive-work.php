@@ -74,7 +74,7 @@
                       <span class="home-works__badge home-works__badge--<?php echo esc_attr( $color_key ); ?>"><?php echo esc_html( $work_category ); ?></span>
                     <?php endif; ?>
                     <h3 class="home-works__title"><?php the_title(); ?></h3>
-                    <p class="home-works__desc"><?php the_excerpt(); ?></p>
+                    <p class="home-works__desc"><?php echo esc_html( get_the_excerpt() ); ?></p>
                   </div>
 
                 </a>

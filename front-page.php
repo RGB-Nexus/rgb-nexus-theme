@@ -611,7 +611,7 @@
                     if ( has_excerpt() ) {
                       echo wp_kses_post( get_the_excerpt() );
                     } else {
-                      echo wp_trim_words( get_the_content(), 60 );
+                      echo esc_html( wp_trim_words( get_the_content(), 60 ) );
                     }
                   ?></p>
                 </div>

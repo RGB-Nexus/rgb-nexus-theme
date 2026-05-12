@@ -25,7 +25,7 @@
       </div>
 
       <div class="site-footer__bottom">
-        <p class="site-footer__copy">&copy; <?php echo date('Y'); ?> RGB Nexus. All rights reserved.</p>
+        <p class="site-footer__copy">&copy; <?php echo wp_date('Y'); ?> RGB Nexus. All rights reserved.</p>
       </div>
 
     </div>
