@@ -94,6 +94,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* ロゴ・装飾アイコン上の不要カーソルを抑制 */
+.logo, .logo * { cursor: default; user-select: none; }
+a .logo, a .logo * { cursor: inherit; }
+
 /* ナビ開時のスクロール禁止（JS から付与） */
 body.is-nav-open { overflow: hidden; }
 
