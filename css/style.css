@@ -1800,6 +1800,78 @@ p {
   .home-hero__action-note { font-size: 0.875rem; }
 }
 
+/* ================================================================
+   6.1-SP スマホ Hero 描画コスト削減
+   filter:blur / backdrop-filter / box-shadow を軽量化し、
+   初期描画を最優先する。PCの見た目は変更なし。
+   ================================================================ */
+
+/* ── SP フェードインアニメーション（transform/opacity のみ） ── */
+@keyframes hero-sp-fadein {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 767px) {
+  /* 1. ブロブ: blur(96px) × 900px × アニメーションは最重要コスト
+        → ブラーを半減し、アニメーションを停止して静的描画に */
+  .home-hero__blobs {
+    width: 560px;
+    height: 560px;
+  }
+  .home-hero__blob {
+    filter: blur(48px);
+    animation: none;
+  }
+
+  /* 2. backdrop-filter 除去（合成レイヤー生成コストが高い） */
+  .home-hero__phase-circle {
+    backdrop-filter: none;
+  }
+
+  /* 3. outer-glow のblurを大幅削減 + filter transition を削除
+        transition: filter は hover 時にのみ発火するが宣言コスト自体も削減 */
+  .home-hero__phase-outer-glow {
+    filter: blur(6px);
+    transition: none;
+    inset: -2px;
+  }
+
+  /* 4. phase-circle 内部 blur を大幅削減 */
+  .home-hero__phase-circle-blur--1 { filter: blur(5px); }
+  .home-hero__phase-circle-blur--2 { filter: blur(2px); }
+
+  /* 5. phase-circle の box-shadow を 2層 → 1層に簡略化 */
+  .home-hero__phase-circle--r { box-shadow: 0 2px 12px rgba(239,68,68,0.18); }
+  .home-hero__phase-circle--g { box-shadow: 0 2px 12px rgba(34,197,94,0.18); }
+  .home-hero__phase-circle--b { box-shadow: 0 2px 12px rgba(59,130,246,0.18); }
+
+  /* 6. タイトルアクセントのblurグロー（LCP要素直下のfilterを除去） */
+  .home-hero__title-accent::before { filter: none; }
+
+  /* 7. eyebrow dots の box-shadow を軽量化 */
+  .home-hero__eyebrow .rgb-dots__dot--r { box-shadow: 0 2px 4px rgba(239,68,68,0.25); }
+  .home-hero__eyebrow .rgb-dots__dot--g { box-shadow: 0 2px 4px rgba(34,197,94,0.25); }
+  .home-hero__eyebrow .rgb-dots__dot--b { box-shadow: 0 2px 4px rgba(59,130,246,0.25); }
+
+  /* 8. SP フェードインアニメーション（初回描画後の軽量な動き）
+        transform/opacity のみ → コンポジタースレッドで完結 */
+  .home-hero__eyebrow { animation: hero-sp-fadein 0.55s ease-out 0.05s both; }
+  .home-hero__title   { animation: hero-sp-fadein 0.65s ease-out 0.15s both; }
+  .home-hero__lead    { animation: hero-sp-fadein 0.65s ease-out 0.25s both; }
+  .home-hero__visual  { animation: hero-sp-fadein 0.65s ease-out 0.35s both; }
+  .home-hero__actions { animation: hero-sp-fadein 0.55s ease-out 0.45s both; }
+}
+
+/* reduced-motion: フェードインも停止 */
+@media (prefers-reduced-motion: reduce) {
+  .home-hero__eyebrow,
+  .home-hero__title,
+  .home-hero__lead,
+  .home-hero__visual,
+  .home-hero__actions { animation: none; }
+}
+
 
 /* ---------------------------------------------------------------------------
    6.2 Problem / Solution — 汎用スタイル
