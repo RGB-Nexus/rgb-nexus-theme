@@ -32,6 +32,13 @@ function rgb_nexus_scripts() {
 add_action('wp_enqueue_scripts', 'rgb_nexus_scripts');
 
 
+// script.js に defer を付与してパーサーブロックを回避
+add_filter('script_loader_tag', function( $tag, $handle ) {
+  if ( $handle !== 'rgb-nexus-script' ) return $tag;
+  return str_replace( ' src=', ' defer src=', $tag );
+}, 10, 2 );
+
+
 // 長期運用でテーマ変更の可能性がある場合は、CPT登録の専用プラグイン化を検討する。
 function rgb_nexus_register_post_types() {
 
