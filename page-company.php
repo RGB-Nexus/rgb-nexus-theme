@@ -71,7 +71,7 @@ get_header();
 
           <div class="company-info__row" role="row">
             <div class="company-info__label" role="rowheader">所在地</div>
-            <div class="company-info__value" role="cell">埼玉県新座市</div>
+            <div class="company-info__value" role="cell">埼玉県新座市大和田5-12-16</div>
           </div>
 
           <div class="company-info__row" role="row">

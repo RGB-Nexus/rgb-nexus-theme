@@ -5542,3 +5542,32 @@ p {
 }
 
 @media (min-width: 768px) { .company-philosophy__value-desc { font-size: 0.9375rem; } }
+
+/* =============================================================================
+   MOBILE: 日本語本文テキスト 折り返し・可読性改善
+   対象: 本文・説明系クラスのみ（見出し・ボタン・ナビ・タグは除外）
+   word-break: auto-phrase … 語境界での自然な折り返し（CJK最適化）
+   overflow-wrap: break-word … 長英単語のはみ出し防止
+   line-break: strict … 句読点が行頭・行末にこないよう強制
+   ============================================================================= */
+@media (max-width: 767px) {
+  .work-detail__block-body,
+  .home-service__main-desc,
+  .home-service__sub-desc,
+  .home-strength__card-desc,
+  .service-recommend__card-desc,
+  .problem-item__text,
+  .section-heading__lead,
+  .page-hero__lead,
+  .cta-section__lead,
+  .home-hero__lead,
+  .home-works__desc,
+  .company-business__desc,
+  .company-strength__desc,
+  .company-philosophy__value-desc,
+  .company-profile__section-body p {
+    word-break: auto-phrase;
+    overflow-wrap: break-word;
+    line-break: strict;
+  }
+}
