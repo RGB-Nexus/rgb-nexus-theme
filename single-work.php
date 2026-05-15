@@ -8,7 +8,7 @@
   $project_url      = function_exists('get_field') ? get_field('project_url')      : '';
   $project_scope    = function_exists('get_field') ? get_field('project_scope')    : [];
   $project_problem  = function_exists('get_field') ? get_field('project_problem')  : '';
-  $project_solution = function_exists('get_field') ? get_field('project_solution') : '';
+  $work_response    = function_exists('get_field') ? get_field('work_response')    : '';
   $project_points   = function_exists('get_field') ? get_field('project_points')   : '';
   $project_result   = function_exists('get_field') ? get_field('project_result')   : '';
   $client_name      = function_exists('get_field') ? get_field('client_name')      : '';
@@ -181,7 +181,7 @@
       </section>
       <?php endif; ?>
 
-      <?php if ( $project_solution ) : ?>
+      <?php if ( $work_response ) : ?>
       <section class="work-detail__section work-detail__section--gray">
         <div class="l-container">
           <div class="work-detail__inner">
@@ -194,7 +194,7 @@
                 </div>
                 <h2 class="work-detail__block-title">対応内容</h2>
               </div>
-              <p class="work-detail__block-body"><?php echo nl2br( esc_html( $project_solution ) ); ?></p>
+              <p class="work-detail__block-body"><?php echo nl2br( esc_html( $work_response ) ); ?></p>
             </div>
           </div>
         </div>
