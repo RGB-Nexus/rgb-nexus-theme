@@ -135,3 +135,35 @@ function rgb_nexus_auto_slug_work( $data, $postarr ) {
 }
 
 add_filter( 'wp_insert_post_data', 'rgb_nexus_auto_slug_work', 10, 2 );
+
+
+// work_response フィールド名移行（project_content → work_response）一度だけ実行
+add_action( 'admin_init', function() {
+  if ( get_option( 'rgb_work_response_migration_v1' ) ) return;
+
+  global $wpdb;
+
+  // ACFフィールド定義のfield_nameを変更
+  $wpdb->query(
+    $wpdb->prepare(
+      "UPDATE {$wpdb->posts} SET post_excerpt = 'work_response' WHERE post_type = 'acf-field' AND post_name = %s",
+      'field_69fd685b025a5'
+    )
+  );
+
+  // 既存postmetaキーを移行
+  $wpdb->query(
+    "UPDATE {$wpdb->postmeta} pm
+     JOIN {$wpdb->posts} p ON p.ID = pm.post_id
+     SET pm.meta_key = 'work_response'
+     WHERE pm.meta_key = 'project_content' AND p.post_type = 'work'"
+  );
+  $wpdb->query(
+    "UPDATE {$wpdb->postmeta} pm
+     JOIN {$wpdb->posts} p ON p.ID = pm.post_id
+     SET pm.meta_key = '_work_response'
+     WHERE pm.meta_key = '_project_content' AND p.post_type = 'work'"
+  );
+
+  update_option( 'rgb_work_response_migration_v1', 1 );
+} );
