@@ -2805,17 +2805,25 @@ p {
 @media (min-width: 768px) { .home-works__body { padding: 24px; } }
 @media (min-width: 1024px) { .home-works__body { padding: 28px; } }
 
-/* Category badge */
+/* Scope tags wrapper */
+.home-works__scope-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+/* Badge (scope tag) */
 .home-works__badge {
   display: inline-block;
-  padding: 3px 12px;
+  padding: 3px 10px;
   font-size: 0.6875rem;
   font-weight: 500;
   letter-spacing: 0.04em;
   border-radius: 9999px;
   border: 1px solid var(--color-border);
   color: var(--color-text-main);
-  margin-bottom: 10px;
+  white-space: nowrap;
 }
 
 .home-works__badge--r { background: rgba(239, 68, 68, 0.08); }
@@ -2837,12 +2845,8 @@ p {
 
 .home-works__card:hover .home-works__title { color: var(--color-text-sub); }
 
-/* Description */
-.home-works__desc {
-  font-size: 1rem;
-  color: var(--color-text-sub);
-  line-height: 1.75;
-}
+/* Archive: title is the last element — remove trailing margin */
+.works-archive__article .home-works__title { margin-bottom: 0; }
 
 /* CTA — SP full width, MD auto */
 .home-works__cta {
@@ -3932,51 +3936,18 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 6px;
   margin-top: 48px;
   position: relative;
   z-index: 1;
 }
 
-@media (min-width: 768px)  { .works-archive__pager { gap: 12px; margin-top: 64px; } }
+@media (min-width: 768px)  { .works-archive__pager { gap: 8px; margin-top: 64px; } }
 @media (min-width: 1024px) { .works-archive__pager { margin-top: 80px; } }
 
-.works-archive__pager-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 40px;
-  padding-inline: 16px;
-  min-width: 80px;
-  background: #ffffff;
-  color: var(--color-text-main);
-  border: 2px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: border-color var(--transition-base), box-shadow var(--transition-base);
-}
-
-@media (min-width: 768px) {
-  .works-archive__pager-btn {
-    height: 48px;
-    padding-inline: 20px;
-    min-width: 90px;
-    font-size: 1rem;
-  }
-}
-
-.works-archive__pager-btn:hover:not(:disabled) {
-  border-color: var(--color-border-rule);
-  box-shadow: var(--shadow-sm);
-}
-
-.works-archive__pager-btn:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
-.works-archive__pager-num {
+/* Base style for all paginate_links items */
+.works-archive__pager .page-numbers {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -3984,28 +3955,63 @@ p {
   height: 40px;
   background: #ffffff;
   color: var(--color-text-main);
-  border: 2px solid var(--color-border);
+  border: 1.5px solid var(--color-border);
   border-radius: var(--radius-sm);
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   transition: border-color var(--transition-base), box-shadow var(--transition-base),
               background-color var(--transition-base), color var(--transition-base);
 }
 
-@media (min-width: 768px) {
-  .works-archive__pager-num { width: 48px; height: 48px; font-size: 1rem; }
+/* Prev / Next — wider pill */
+.works-archive__pager .page-numbers.prev,
+.works-archive__pager .page-numbers.next {
+  width: auto;
+  padding-inline: 18px;
+  gap: 6px;
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
 }
 
-.works-archive__pager-num:hover:not(.works-archive__pager-num--active) {
+/* Hover */
+.works-archive__pager .page-numbers:hover:not(.current):not(.dots) {
   border-color: var(--color-border-rule);
   box-shadow: var(--shadow-sm);
+  color: var(--color-text-main);
 }
 
-.works-archive__pager-num--active {
+/* Active page */
+.works-archive__pager .page-numbers.current {
   background: var(--color-primary);
   color: #ffffff;
   border-color: var(--color-primary);
-  box-shadow: 0 4px 12px rgba(3, 2, 19, 0.20);
+  box-shadow: 0 4px 14px rgba(3, 2, 19, 0.18);
+  cursor: default;
+}
+
+/* Dots (…) */
+.works-archive__pager .page-numbers.dots {
+  border-color: transparent;
+  box-shadow: none;
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: default;
+}
+
+@media (min-width: 768px) {
+  .works-archive__pager .page-numbers {
+    width: 44px;
+    height: 44px;
+    font-size: 0.875rem;
+  }
+
+  .works-archive__pager .page-numbers.prev,
+  .works-archive__pager .page-numbers.next {
+    width: auto;
+    padding-inline: 22px;
+  }
 }
 
 

@@ -51,7 +51,7 @@
 
             while ( have_posts() ) : the_post();
               $work_color    = function_exists('get_field') ? get_field('work_color')    : '';
-              $work_category = function_exists('get_field') ? get_field('work_category') : '';
+              $project_scope = function_exists('get_field') ? get_field('project_scope') : [];
               $color_key     = isset( $color_map[ $work_color ] ) ? $color_map[ $work_color ] : 'b';
             ?>
 
@@ -70,11 +70,14 @@
                   </div>
 
                   <div class="home-works__body">
-                    <?php if ( $work_category ) : ?>
-                      <span class="home-works__badge home-works__badge--<?php echo esc_attr( $color_key ); ?>"><?php echo esc_html( $work_category ); ?></span>
+                    <?php if ( is_array( $project_scope ) && ! empty( $project_scope ) ) : ?>
+                      <div class="home-works__scope-tags">
+                        <?php foreach ( array_slice( $project_scope, 0, 3 ) as $scope_item ) : ?>
+                          <span class="home-works__badge home-works__badge--<?php echo esc_attr( $color_key ); ?>"><?php echo esc_html( $scope_item ); ?></span>
+                        <?php endforeach; ?>
+                      </div>
                     <?php endif; ?>
                     <h3 class="home-works__title"><?php the_title(); ?></h3>
-                    <p class="home-works__desc"><?php echo esc_html( get_the_excerpt() ); ?></p>
                   </div>
 
                 </a>
