@@ -587,7 +587,7 @@
 
             <?php while ( $works_query->have_posts() ) : $works_query->the_post();
               $work_color    = function_exists('get_field') ? get_field('work_color')    : '';
-              $work_category = function_exists('get_field') ? get_field('work_category') : '';
+              $project_scope = function_exists('get_field') ? get_field('project_scope') : [];
               $color_key     = isset( $work_color_map[ $work_color ] ) ? $work_color_map[ $work_color ] : 'b';
             ?>
 
@@ -603,17 +603,14 @@
                   <span class="home-works__thumb-overlay home-works__thumb-overlay--<?php echo esc_attr( $color_key ); ?>"></span>
                 </div>
                 <div class="home-works__body">
-                  <?php if ( $work_category ) : ?>
-                    <span class="home-works__badge home-works__badge--<?php echo esc_attr( $color_key ); ?>"><?php echo esc_html( $work_category ); ?></span>
+                  <?php if ( is_array( $project_scope ) && ! empty( $project_scope ) ) : ?>
+                    <div class="home-works__scope-tags">
+                      <?php foreach ( array_slice( $project_scope, 0, 3 ) as $scope_item ) : ?>
+                        <span class="home-works__badge home-works__badge--<?php echo esc_attr( $color_key ); ?>"><?php echo esc_html( $scope_item ); ?></span>
+                      <?php endforeach; ?>
+                    </div>
                   <?php endif; ?>
                   <h3 class="home-works__title"><?php the_title(); ?></h3>
-                  <p class="home-works__desc"><?php
-                    if ( has_excerpt() ) {
-                      echo wp_kses_post( get_the_excerpt() );
-                    } else {
-                      echo esc_html( wp_trim_words( get_the_content(), 60 ) );
-                    }
-                  ?></p>
                 </div>
               </a>
             </li>
@@ -632,9 +629,10 @@
                   <span class="home-works__thumb-overlay home-works__thumb-overlay--r"></span>
                 </div>
                 <div class="home-works__body">
-                  <span class="home-works__badge home-works__badge--r">製造業</span>
+                  <div class="home-works__scope-tags">
+                    <span class="home-works__badge home-works__badge--r">製造業</span>
+                  </div>
                   <h3 class="home-works__title">株式会社Aコーポレートサイト</h3>
-                  <p class="home-works__desc">企業の信頼性を高めるコーポレートサイトをリニューアル。CMSを導入し、更新性を向上しました。</p>
                 </div>
               </a>
             </li>
@@ -645,9 +643,10 @@
                   <span class="home-works__thumb-overlay home-works__thumb-overlay--g"></span>
                 </div>
                 <div class="home-works__body">
-                  <span class="home-works__badge home-works__badge--g">IT・サービス</span>
+                  <div class="home-works__scope-tags">
+                    <span class="home-works__badge home-works__badge--g">IT・サービス</span>
+                  </div>
                   <h3 class="home-works__title">Bサービス ランディングページ</h3>
-                  <p class="home-works__desc">新規サービスのローンチに伴うLP制作。CV率を重視した設計で目標を達成しました。</p>
                 </div>
               </a>
             </li>
@@ -658,9 +657,10 @@
                   <span class="home-works__thumb-overlay home-works__thumb-overlay--b"></span>
                 </div>
                 <div class="home-works__body">
-                  <span class="home-works__badge home-works__badge--b">医療・健康</span>
+                  <div class="home-works__scope-tags">
+                    <span class="home-works__badge home-works__badge--b">医療・健康</span>
+                  </div>
                   <h3 class="home-works__title">C医院 ホームページ制作</h3>
-                  <p class="home-works__desc">患者様に寄り添う温かみのあるデザインで、予約数の向上に貢献しました。</p>
                 </div>
               </a>
             </li>

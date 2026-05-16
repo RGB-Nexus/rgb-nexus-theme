@@ -2845,8 +2845,9 @@ p {
 
 .home-works__card:hover .home-works__title { color: var(--color-text-sub); }
 
-/* Archive: title is the last element — remove trailing margin */
-.works-archive__article .home-works__title { margin-bottom: 0; }
+/* Title is the last element in card body — remove trailing margin */
+.works-archive__article .home-works__title,
+.home-works__list .home-works__title { margin-bottom: 0; }
 
 /* CTA — SP full width, MD auto */
 .home-works__cta {

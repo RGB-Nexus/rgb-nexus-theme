@@ -72,6 +72,15 @@ function rgb_nexus_register_post_types() {
 add_action( 'init', 'rgb_nexus_register_post_types' );
 
 
+// work アーカイブのみ 9件/ページ表示（3カラム×3行）
+function rgb_nexus_work_posts_per_page( $query ) {
+  if ( ! is_admin() && $query->is_main_query() && $query->is_post_type_archive( 'work' ) ) {
+    $query->set( 'posts_per_page', 9 );
+  }
+}
+add_action( 'pre_get_posts', 'rgb_nexus_work_posts_per_page' );
+
+
 // work投稿スラッグ自動採番（001, 002, 003...）
 function rgb_nexus_next_work_slug() {
   global $wpdb;
