@@ -82,9 +82,13 @@
                 'height' => '600',
               ] ); ?>
             <?php else : ?>
-              <div class="home-works__thumb">
-                <div class="home-works__thumb-overlay home-works__thumb-overlay--<?php echo esc_attr( $color_key ); ?>" aria-hidden="true"></div>
-              </div>
+              <img
+                class="work-detail__visual-img"
+                src="<?php echo esc_url( rgb_nexus_get_work_thumbnail_url( get_the_ID() ) ); ?>"
+                alt=""
+                width="1200"
+                height="600"
+              >
             <?php endif; ?>
           </div>
 

@@ -72,6 +72,15 @@ function rgb_nexus_register_post_types() {
 add_action( 'init', 'rgb_nexus_register_post_types' );
 
 
+// アイキャッチ未設定時のサムネイルURLを返す（thumbnail_category ACFフィールドを参照）
+function rgb_nexus_get_work_thumbnail_url( $post_id ) {
+  $allowed = [ 'business', 'creative', 'building', 'education', 'medical', 'sports', 'coding' ];
+  $category = function_exists( 'get_field' ) ? get_field( 'thumbnail_category', $post_id ) : '';
+  $slug     = ( $category && in_array( $category, $allowed, true ) ) ? $category : 'default';
+  return get_template_directory_uri() . '/assets/images/work-thumbnails/' . $slug . '.jpg';
+}
+
+
 // work アーカイブのみ 9件/ページ表示（3カラム×3行）
 function rgb_nexus_work_posts_per_page( $query ) {
   if ( ! is_admin() && $query->is_main_query() && $query->is_post_type_archive( 'work' ) ) {

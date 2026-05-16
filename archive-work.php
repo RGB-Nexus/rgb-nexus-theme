@@ -65,6 +65,13 @@
                         'class'   => 'works-archive__thumb-img',
                         'loading' => 'lazy',
                       ] ); ?>
+                    <?php else : ?>
+                      <img
+                        class="works-archive__thumb-img"
+                        src="<?php echo esc_url( rgb_nexus_get_work_thumbnail_url( get_the_ID() ) ); ?>"
+                        alt=""
+                        loading="lazy"
+                      >
                     <?php endif; ?>
                     <div class="home-works__thumb-overlay home-works__thumb-overlay--<?php echo esc_attr( $color_key ); ?>" aria-hidden="true"></div>
                   </div>
